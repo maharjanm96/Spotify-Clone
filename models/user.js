@@ -1,25 +1,25 @@
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
-const passwordComplexity = require("joi-passowrd-complexity");
+const passwordComplexity = require("joi-password-complexity");
 
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required:[ture, 'Name is Required']
+        required:[true, 'Name is Required']
     },
     email: {
         type: String,
-        required: [ture, 'Email is Required'],
+        required: [true, 'Email is Required'],
         unique: true
     },
     password: {
         type: String,
-        required: [ture, 'Password is Required']
+        required: [true, 'Password is Required']
     },
     gender: {
         type: String,
-        required: [ture, 'Select Gender']
+        required: [true, 'Select Gender']
     },
     month: {
         type: String,
@@ -34,12 +34,12 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     likedSongs: {
-        type: String,
+        type: [String],
         required: true,
         default: []
     },
-    playlists: {
-        type: String,
+    playLists: {
+        type: [String],
         required: true,
         default: []
     },
