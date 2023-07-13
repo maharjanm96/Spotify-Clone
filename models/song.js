@@ -20,7 +20,7 @@ const songSchema = new mongoose.Schema({
     },
     duration: {
         type: String,
-        required: true
+        required: [true, 'Duration is Requried.']
     }
 })
 
@@ -37,4 +37,4 @@ const validate = (song) => {
 
 const Song = mongoose.model("song", songSchema);
 
-module.exports= {Song,validate};
+module.exports = { Song, validate };
