@@ -8,6 +8,7 @@ const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
 const songRoutes = require('./routes/songs');
 const playlistRoutes = require('./routes/playlists')
+const searchRoutes = require('./routes/search');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/login", authRoutes);
 app.use("/api/songs", songRoutes);
 app.use("/api/playlists", playlistRoutes);
+app.use("/api/",searchRoutes);
 
 const port = process.env.PORT || 8000;
 app.listen(port, console.log(`Server Started At PORT ${port}... `))
