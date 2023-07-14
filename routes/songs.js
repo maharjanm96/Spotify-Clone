@@ -30,8 +30,6 @@ router.put("/:id", [validObjectId, admin], async (req, res) => {
 })
 
 
-
-
 //DELETE SONG BY ID
 router.delete("/:id", [validObjectId, admin], async (req, res) => {
     const song = await Song.findByIdAndDelete(req.params.id);

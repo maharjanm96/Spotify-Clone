@@ -7,18 +7,18 @@ const playlistSchema = new mongoose.Schema({
     name: { type: String, required: true },
     user: { type: ObjectId, ref: "user", required: true },
     desc: { type: String },
-    songs: { type: Array, default:[] },
+    songs: { type: Array, default: [] },
     img: { type: String }
 
 });
 
-const validate = (playlist)=>{
+const validate = (playlist) => {
     const schema = Joi.object({
-        name:Joi.string().required(),
+        name: Joi.string().required(),
         user: Joi.string().required(),
         desc: Joi.string().allow(""),
-        song: Joi.array().items(Joi.string()),
-        name: Joi.string().allow(""),
+        songs: Joi.array().items(Joi.string()),
+        img: Joi.string().allow(""),
     });
 
     return schema.validate(playlist)
@@ -26,4 +26,4 @@ const validate = (playlist)=>{
 
 const Playlist = mongoose.model("playlist", playlistSchema)
 
-module.exports ={Playlist,validate}
+module.exports = { Playlist, validate }
